@@ -59,7 +59,7 @@
 
         static void StartGame()
         {
-            InitialiseBoard();
+            //InitialiseBoard();
             int player1Position = 0, player2Position = 0, turn = 1, diceRolls = 0;
             while(player1Position < WINNING_POSITION &&  player2Position < WINNING_POSITION)
             {
@@ -72,9 +72,14 @@
                     int previousPosition = player1Position;
                     player1Position = MovePlayer(player1Position, diceRoll);
                     Console.WriteLine($"Player 1 is at {player1Position}");
+                    if(player1Position < WINNING_POSITION && (WINNING_POSITION - player1Position) < diceRoll)
+                    {
+                        Console.WriteLine($"Player {turn} needs exactly {WINNING_POSITION - player1Position} to win!");
+                    }
                     if (previousPosition + diceRoll <= WINNING_POSITION && ladders[previousPosition + diceRoll] != 0)
                     {
                         extraTurn = true; // grant extra turn if player climbed up the ladder
+                        Console.WriteLine($"WOW! Player {turn} gets an extra turn!");
                     }
                 }
                 else
@@ -85,6 +90,7 @@
                     if (previousPosition + diceRoll <= WINNING_POSITION && ladders[previousPosition + diceRoll] != 0)
                     {
                         extraTurn = true; // grant extra turn if player climbed up the ladder
+                        Console.WriteLine($"WOW! Player {turn} gets an extra turn!");
                     }
                 }
                 if(!extraTurn)
@@ -97,6 +103,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hi! Welcome To Snakes & Ladder Game!");
+            InitialiseBoard();
             StartGame();
         }
     }
