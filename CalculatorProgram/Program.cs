@@ -27,13 +27,13 @@ namespace CalculatorProgram
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hi! Welcome To Apna Calculator App - Calculations Made Easy!");
+            Console.WriteLine("Hi! Welcome To Apna Calculator App - Calculations Made Easy!\n");
             Console.WriteLine("Press the buttons according to your needs:");
             Console.WriteLine("1 --------------------> Addition");
             Console.WriteLine("2 --------------------> Subtraction");
             Console.WriteLine("3 --------------------> Multiplication");
             Console.WriteLine("4 --------------------> Division");
-            Console.WriteLine("5 --------------------> Exit");
+            Console.WriteLine("5 --------------------> Exit\n");
             while(true)
             {
                 int res = 0;
